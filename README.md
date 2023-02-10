@@ -1,4 +1,7 @@
-# frontend
+# frontend -hospital
+
+## Summary
+[병원](https://github.com/kimjungwon2/hospital) 프로젝트의 frontend.
 
 ## Project setup
 ```
