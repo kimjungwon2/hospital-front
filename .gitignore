@@ -1,6 +1,7 @@
 .DS_Store
 node_modules
 /dist
+/npm-v6.14.13
 
 
 # local env files
