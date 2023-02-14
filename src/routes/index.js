@@ -19,7 +19,7 @@ const router =  new VueRouter({
        {
            path:'/main',
            component: () => import('@/views/MainPage.vue'),
-           meta:{title:"메인 페이지"},
+           meta:{title:"메인 페이지X"},
        },
        {
            path: '/signup',
