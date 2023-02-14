@@ -19,7 +19,7 @@ const router =  new VueRouter({
        {
            path:'/main',
            component: () => import('@/views/MainPage.vue'),
-           meta:{title:"PUSH 성공"},
+           meta:{title:"메인 페이지"},
        },
        {
            path: '/signup',
@@ -101,7 +101,7 @@ const router =  new VueRouter({
        {
           path:'/staff/register/:hospitalId/staffHosInfo',
           component: ()=> import('@/views/staff/hospital/StaffRegisterStaffHosInfoPage.vue'),
-          meta: { staff: true},
+          meta: { staff: true, title:"병원 추가 정보 등록하기"},
        },
        {
           path:'/staff/staffHosInfo',
