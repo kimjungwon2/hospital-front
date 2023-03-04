@@ -17,7 +17,7 @@
                 주소: {{ contentItem.roadBaseAddress }}
               </p>
     
-              <p class="item item4" v-if= "contentItem.postTagDtos !== null" >
+              <p class="item item4" v-if= "contentItem.postTags !== null" >
                 태그: {{tags}}
               </p>
     
@@ -54,8 +54,8 @@ export default {
         this.$router.push(`/hospital/view/${id}`);
     },
     createTags(){
-        for(let tag in this.contentItem.postTagDtos){
-          this.tags += `#${this.contentItem.postTagDtos[tag].tagName}`;
+        for(let tag in this.contentItem.postTags){
+          this.tags += `#${this.contentItem.postTags[tag].tagName}`;
        }
     },
   },
