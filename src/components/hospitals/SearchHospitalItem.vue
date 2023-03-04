@@ -28,6 +28,7 @@
             <p class="item item5" v-if= "contentItem.reviewHospitals !== null">
                 리뷰 평가 : {{contentItem.reviewHospitals[0].averageRate}} | 등록된 리뷰 개수 : {{ contentItem.reviewHospitals[0].reviewCount }}
             </p>
+            
             <p class="item item5" v-else>
               리뷰: 없음
             </p>
