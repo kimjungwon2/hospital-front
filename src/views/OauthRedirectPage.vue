@@ -4,16 +4,22 @@
 </template>
  
 <script>
+import {
+    getMemberIdFromCookie, 
+    getMemberStatusFromCookie, 
+    getNickNameFromCookie, 
+    getTokenFromCookie
+} from '@/utils/cookies';
+ 
 export default {
   methods:{
     async oauthLogin(){
       const data ={
-        nickName:this.$cookies.get("nick_name"),
-        memberId:this.$cookies.get("member_id"),
-        memberStatus:this.$cookies.get("member_status"),
-        token:this.$cookies.get("token")
+        nickName:getNickNameFromCookie(),
+        memberId:getMemberIdFromCookie(),
+        memberStatus:getMemberStatusFromCookie(),
+        token:getTokenFromCookie()
       }
-      console.log(data);
 
       await this.$store.dispatch('oauthLogin',data);
       this.$router.push(`/`);

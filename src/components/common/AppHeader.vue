@@ -100,13 +100,7 @@ export default {
   },
   methods:{
     logoutUser(){
-      deleteCookie('member_status');
-      deleteCookie('nick_name');
-      deleteCookie('token');
-      deleteCookie('member_id');
-      deleteCookie('no_answer_count');
-      deleteCookie('review_count');
-      deleteCookie('search_name');
+      this.$cookies.keys().forEach(cookie => this.$cookies.remove(cookie));
       this.count='';
       this.$store.commit('clearUserInfo');
       this.$router.push('/').catch(err => {
@@ -115,8 +109,6 @@ export default {
                     !err.message.includes('Avoided redundant navigation to current location')
                 ) {alert(err);}}
       );
-      //새로고침하기
-      this.$router.go();
     },
     routerUser(){
        const memberId= this.$store.getters.getMemberId;
