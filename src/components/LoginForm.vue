@@ -68,8 +68,6 @@ export default {
                 }; 
                await this.$store.dispatch('login',userData);
                this.$router.push('/main');
-            } catch (error) {
-                alert(error.response.data.error);
             } finally{
                 this.initForm();
             }

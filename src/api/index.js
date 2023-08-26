@@ -34,7 +34,10 @@ function signupUser(userData){
 }
 
 function loginUser(userData){
-    return instance.post('login',userData);
+    return instance.post('login',userData)
+    .catch((error) => {
+        alert(error.response.data.message)
+    });
 }
 
 function searchHospital(searchName,page){
