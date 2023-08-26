@@ -14,6 +14,7 @@ import {
     saveNoAnswerCountToCookie,
     saveUnapprovedReviewCountToCookie
 } from '@/utils/cookies';
+
 import { loginUser } from '@/api/index';
 import {staffNoAnswerCount} from '@/api/staff';
 import {adminUnapprovedReviewCount} from '@/api/admin';
@@ -26,7 +27,7 @@ export default new Vuex.Store({
         nickName: getNickNameFromCookie() || '',
         memberStatus: getMemberStatusFromCookie() || '',
         token: getTokenFromCookie() || '',
-        noAnswerCount: getNoAnswerCountFromCookie()||'',
+        noAnswerCount: getNoAnswerCountFromCookie() ||'',
         reviewCount: getUnapprovedReviewCountFromCookie()||'',
     },
     getters:{
@@ -82,6 +83,12 @@ export default new Vuex.Store({
                 saveUnapprovedReviewCountToCookie(state.reviewCount);
             }
         },
+        setOauthUser(state, data){
+            state.memberId = data.memberId;
+            state.nickName = data.nickName;
+            state.memberStatus = data.memberStatus;
+            state.token = data.token;
+        },
     },
     actions:{
         async login({commit}, userData){
@@ -108,9 +115,30 @@ export default new Vuex.Store({
                 const count = data.data;
                 commit('setUnapprovedReviewCount',count);
                 saveUnapprovedReviewCountToCookie(count);
-            }
-            
+            } 
             return data;
         },
+
+        async oauthLogin({commit}, data){
+            commit('setOauthUser', data);
+
+            //STAFF 권한이면 미답변 카운터 load하고 저장.
+            if(data.memberStatus === 'STAFF'){
+                const data = await staffNoAnswerCount();
+                const count = data.data;
+                commit('setNoAnswerCount',count);
+                saveNoAnswerCountToCookie(count);
+            }
+
+            //ADMIN 권한이면 미승인 리뷰 카운터 load하고 저장.
+            if(data.memberStatus === 'ADMIN'){
+                const data = await adminUnapprovedReviewCount();
+                const count = data.data;
+                commit('setUnapprovedReviewCount',count);
+                saveUnapprovedReviewCountToCookie(count);
+            } 
+
+            return data;
+        }
     }
 });

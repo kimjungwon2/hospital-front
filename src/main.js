@@ -5,10 +5,12 @@ import store from '@/store/index';
 import VueSimpleAlert from 'vue-simple-alert';
 import { formatDate } from '@/utils/filters';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import VueCookies from "vue-cookies";
 
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 Vue.use(VueSimpleAlert);
+Vue.use(VueCookies);
 Vue.filter('formatDate', formatDate);
 Vue.config.productionTip = false
 
