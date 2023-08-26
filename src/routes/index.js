@@ -17,6 +17,11 @@ const router =  new VueRouter({
            meta:{title:"로그인 페이지"},
        },
        {
+          path: '/oauth2/redirect',
+          component: () => import('@/views/OauthRedirectPage.vue'),
+          meta:{title:"로그인 페이지"},
+       },
+       {
            path:'/main',
            component: () => import('@/views/MainPage.vue'),
            meta:{title:"메인 페이지"},

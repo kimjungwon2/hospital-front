@@ -12,7 +12,20 @@
                 <span></span>
                 <label for="password">Password</label>
             </div>
-            <button v-bind:disabled="!isMemberIdValid || !password" type="submit">로그인</button> 
+            <button v-bind:disabled="!isMemberIdValid || !password" type="submit">로그인</button>
+
+            <div class="oauth_login">
+                <a href="http://localhost:9000/oauth2/authorize/google?redirect_uri=http://localhost:8080/oauth2/redirect">
+                    <img class="login__google" width="65"  src="@/assets/google_logo.png" />
+                </a>
+                <a href="http://localhost:9000/oauth2/authorize/naver?redirect_uri=http://localhost:8080/oauth2/redirect">
+                  <img class="login__naver" width="65" src="@/assets/naver_logo.png" />
+                </a>
+                <a href="http://localhost:9000/oauth2/authorize/kakao?redirect_uri=http://localhost:8080/oauth2/redirect">
+                  <img class="login__kakao" width="65" src="@/assets/kakao_logo.png" />
+                </a>
+            </div>
+
             <div class="signup_link">
                 회원이 아니세요? <router-link class="link" to="/signup">Signup</router-link>
             </div>
@@ -155,6 +168,11 @@ form .login_input{
     font-weight:700;
     cursor:pointer;
     outline: none;
+}
+
+.oauth_login{
+    margin: 20px 0;
+    text-align:center;
 }
 
 .login_container button:hover{
