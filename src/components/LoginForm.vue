@@ -15,13 +15,13 @@
             <button v-bind:disabled="!isMemberIdValid || !password" type="submit">로그인</button>
 
             <div class="oauth_login">
-                <a href="http://localhost:9000/api/oauth2/authorize/google?redirect_uri=http://localhost:8080/oauth2/redirect">
+                <a href="http://kyeongihos.shop/api/oauth2/authorize/google?redirect_uri=http://kyeongihos.shop/oauth2/redirect">
                     <img class="login__google" width="65"  src="@/assets/google_logo.png" />
                 </a>
-                <a href="http://localhost:9000/api/oauth2/authorize/naver?redirect_uri=http://localhost:8080/oauth2/redirect">
+                <a href="http://kyeongihos.shop/api/oauth2/authorize/naver?redirect_uri=http://kyeongihos.shop/oauth2/redirect">
                   <img class="login__naver" width="65" src="@/assets/naver_logo.png" />
                 </a>
-                <a href="http://localhost:9000/api/oauth2/authorize/kakao?redirect_uri=http://localhost:8080/oauth2/redirect">
+                <a href="http://kyeongihos.shop/api/oauth2/authorize/kakao?redirect_uri=http://kyeongihos.shop/oauth2/redirect">
                   <img class="login__kakao" width="65" src="@/assets/kakao_logo.png" />
                 </a>
             </div>
