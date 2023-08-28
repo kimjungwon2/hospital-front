@@ -121,7 +121,7 @@ export default new Vuex.Store({
 
         async oauthLogin({commit}, data){
             commit('setOauthUser', data);
-
+            
             //STAFF 권한이면 미답변 카운터 load하고 저장.
             if(data.memberStatus === 'STAFF'){
                 const data = await staffNoAnswerCount();
