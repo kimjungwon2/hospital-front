@@ -9,6 +9,7 @@ function createInstance(){
 }
 
 function createInstanceWithURL(url){
+    console.log(`url 주소: ${process.env.VUE_APP_API_URL}`);
     return axios.create({
         baseURL: `${process.env.VUE_APP_API_URL}${url}`,
     });
